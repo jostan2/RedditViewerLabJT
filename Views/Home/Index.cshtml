@@ -1,0 +1,23 @@
+﻿@model Data1
+
+<a href="@Model.url"> @Model.url 
+
+
+<!--Find this path by following json path. data>children>data>title or other properties. just guess and check--> 
+<!-- find out what nests in what. go to json file, don't use dropdown box in VS.-->
+
+<!--image/media requires (if statement?) setup find index of post that has just a still picture for testing.-->
+
+@* <p>@Model.media</p> <!--if the thumnail does not (!=) say self/isn't empty, skip. If not, display thumbnail-->
+    @if (@*Model.data.children[1].data.thumbnail != null
+   || Model.data.children[0].data.thumbnail != ""
+    Model.thumbnail != "self*@
+
+<!--if the thumnail does not (!=) say self/isn't empty, skip. If not, display thumbnail-->
+    <p>@Model.title</p>
+        @if (Model.thumbnail != "self")
+        {
+            <img src="@Model.thumbnail"/>
+        }
+
+</a>
